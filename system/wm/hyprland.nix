@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./wayland.nix
+      #./wayland.nix
       ./sound.nix
       ./dbus.nix
       ./fonts.nix
@@ -20,5 +20,11 @@
 	    };
 	  portalPackage = pkgs.xdg-desktop-portal-hyprland;
 	};
+    };
+  services.xserver =
+    {
+      enable = true;
+      displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = true;
     };
 }
