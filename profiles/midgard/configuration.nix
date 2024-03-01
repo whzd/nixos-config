@@ -6,9 +6,10 @@
     [
       ../../system/hardware-configuration.nix
       ../../system/hardware/time.nix
-      #../../system/hardware/power.nix
+      ../../system/hardware/power.nix
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/printing.nix
+      ../../system/networking/dns.nix
       ../../system/wm/hyprland.nix
     ];
 
