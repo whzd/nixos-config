@@ -20,8 +20,8 @@
 	  monitor=eDP-1, 1920x1200@60, 0x0, 1.5
 
 	  # Two monitors
-	  monitor=HDMI-A-1, 1920x1080@50, 0x0, 1
-	  monitor=eDP-1, 1920x1200@60, 0x-1080, 1.5
+	  monitor=HDMI-A-1, 1920x1080@50, 0x900, 1
+	  monitor=eDP-1, 1920x1200@60, 0x0, 1.5
           
           
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -139,7 +139,7 @@
           # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
           bind = $mainMod, RETURN, exec, kitty
           bind = $mainMod SHIFT, Q, killactive, 
-          bind = $mainMod SHIFT, M, exit, 
+          bind = $mainMod, M, exit, 
           bind = $mainMod, E, exec, dolphin
           bind = $mainMod, V, togglefloating, 
           bind = $mainMod, P, exec, wofi --show drun

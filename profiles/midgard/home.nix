@@ -9,6 +9,8 @@
   imports =
     [
       ../../user/wm/hyprland/hyprland.nix
+      ../../user/wm/hyprland/wlogout.nix
+      #../../user/wm/hyprland/swaylock.nix
       ../../user/shell/zsh.nix
       ../../user/hardware/bluetooth.nix
     ];
@@ -25,6 +27,8 @@
       wofi
       dolphin
       waybar
+      wlogout
+      swaylock-effects
     ];
   
   home.sessionVariables = {
