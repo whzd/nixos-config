@@ -1,7 +1,7 @@
 {
   description = "Flake of whzd";
 
-  outputs = inputs@{ self, nixpkgs, home-manager, rust-overlay, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, rust-overlay, stylix, ... }:
 
   let
     systemSettings =
@@ -17,6 +17,9 @@
       rec {
         username = "whzd";
         editor = "neovim";
+	theme = "everforest";
+	font = "nerdfonts";
+        fontPkg = pkgs.nerdfonts;
       };
     pkgs =
       import nixpkgs {
@@ -38,6 +41,7 @@
 	      specialArgs =
 	        {
 	          inherit systemSettings;
+		  inherit (inputs) stylix;
 	        };
 	    };
         };
@@ -50,6 +54,7 @@
 	      extraSpecialArgs =
 	        {
 		  inherit userSettings;
+		  inherit (inputs) stylix;
 		};
 	    };
 	};
@@ -62,5 +67,7 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       rust-overlay.url = "github:oxalica/rust-overlay";
+
+      stylix.url = "github:danth/stylix";
     };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, ... }:
+{ config, pkgs, userSettings, stylix, ... }:
 
 {
   home.username = userSettings.username;
@@ -8,9 +8,12 @@
 
   imports =
     [
+      stylix.homeManagerModules.stylix
+      ../../user/themes/stylix.nix
       ../../user/wm/hyprland/hyprland.nix
       ../../user/wm/hyprland/wlogout.nix
-      #../../user/wm/hyprland/swaylock.nix
+      ../../user/wm/hyprland/waybar.nix
+      ../../user/wm/hyprland/swaylock.nix
       ../../user/shell/zsh.nix
       ../../user/hardware/bluetooth.nix
     ];
@@ -25,9 +28,10 @@
       kitty
       firefox
       wofi
-      dolphin
+      xfce.thunar
       waybar
       wlogout
+      hyprpaper
       swaylock-effects
     ];
   

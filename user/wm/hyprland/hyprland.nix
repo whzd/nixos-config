@@ -1,38 +1,38 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, stylix, ... }:
 
 {
   wayland.windowManager.hyprland =
     {
       enable = true;
       plugins = [];
-      settings = { };
+      settings = 
+        { 
+	  misc =
+	    {
+	      "disable_splash_rendering" = true;
+              "force_default_wallpaper" = 0; # Set to 0 to disable the anime mascot wallpapers
+	    };
+	};
       extraConfig =
         ''
+	  exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
+	  exec-once = hyprpaper
 	  exec-once = nm-applet
           exec-once = blueman-applet
           exec-once = waybar
+	  exec-once = pypr
 
           # Monitors
 	  # Default
           monitor=,preferred,auto,1
 
 	  # Only laptop
-	  monitor=eDP-1, 1920x1200@60, 0x0, 1.5
+	  monitor=eDP-1, 1920x1200@60, 0x0, 1.25
 
 	  # Two monitors
-	  monitor=HDMI-A-1, 1920x1080@50, 0x900, 1
-	  monitor=eDP-1, 1920x1200@60, 0x0, 1.5
-          
-          
-          # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-          
-          # Execute your favorite apps at launch
-          # exec-once = waybar & hyprpaper & firefox
-          
-          # Source a file (multi-file configs)
-          # source = ~/.config/hypr/myColors.conf
-          
-          # Some default env vars.
+	  monitor=HDMI-A-1, 1920x1080@60, 0x0, 1
+	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
+
           env = XCURSOR_SIZE,24
           
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
@@ -52,20 +52,18 @@
               sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
           }
           
-          general {
-              # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          
-              gaps_in = 5
-              gaps_out = 20
-              border_size = 2
-              col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-              col.inactive_border = rgba(595959aa)
-          
-              layout = dwindle
-          
-              # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-              allow_tearing = false
-          }
+	  general {
+            cursor_inactive_timeout = 30
+            border_size = 4
+            no_cursor_warps = false
+            col.active_border = rgb('' + config.lib.stylix.colors.base0D + '')
+
+	    col.inactive_border = 0x33'' + config.lib.stylix.colors.base00 + ''
+
+                resize_on_border = true
+                gaps_in = 7
+                gaps_out = 7
+           }
           
           decoration {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -81,7 +79,7 @@
               drop_shadow = yes
               shadow_range = 4
               shadow_render_power = 3
-              col.shadow = rgba(1a1a1aee)
+              #col.shadow = rgba(1a1a1aee)
           }
           
           animations {
@@ -105,6 +103,7 @@
               preserve_split = yes # you probably want this
           }
           
+            #col.inactive_border = rgb('' + config.lib.stylix.colors.base00 + '')
           master {
               # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
               new_is_master = true
@@ -113,11 +112,6 @@
           gestures {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               workspace_swipe = off
-          }
-          
-          misc {
-              # See https://wiki.hyprland.org/Configuring/Variables/ for more
-              force_default_wallpaper = -1 # Set to 0 to disable the anime mascot wallpapers
           }
           
           # Example per-device config
@@ -131,20 +125,20 @@
           # Example windowrule v2
           # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+
+	  windowrulev2 = opacity 0.9 0.9,class:^(kitty)$
+
           
-          
-          # See https://wiki.hyprland.org/Configuring/Keywords/ for more
+	  # Main mod
           $mainMod = ALT
           
-          # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+	  # Custom shortcuts
           bind = $mainMod, RETURN, exec, kitty
           bind = $mainMod SHIFT, Q, killactive, 
           bind = $mainMod, M, exit, 
-          bind = $mainMod, E, exec, dolphin
-          bind = $mainMod, V, togglefloating, 
+          bind = $mainMod, F, togglefloating, 
+          bind = $mainMod, O, togglesplit, # dwindle
           bind = $mainMod, P, exec, wofi --show drun
-          #bind = $mainMod, P, pseudo, # dwindle
-          #bind = $mainMod, J, togglesplit, # dwindle
           
           # Move focus with mainMod + vim movement
           bind = $mainMod, H, movefocus, l
@@ -185,14 +179,33 @@
           # Example special workspace (scratchpad)
           bind = $mainMod, S, togglespecialworkspace, magic
           bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+
+	  # Keyboard media butons
+	  bindel=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+          bindel=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+          bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
           
-          # Scroll through existing workspaces with mainMod + scroll
-          bind = $mainMod, mouse_down, workspace, e+1
-          bind = $mainMod, mouse_up, workspace, e-1
-          
-          # Move/resize windows with mainMod + LMB/RMB and dragging
-          bindm = $mainMod, mouse:272, movewindow
-          bindm = $mainMod, mouse:273, resizewindow
+	  # Pulsadio float window
+          $pavucontrol = class:^(pavucontrol)$
+          windowrulev2 = float,$pavucontrol
+          windowrulev2 = size 86% 40%,$pavucontrol
+          windowrulev2 = move 50% 6%,$pavucontrol
+          windowrulev2 = workspace special silent,$pavucontrol
+          windowrulev2 = opacity 0.80,$pavucontrol
+
+	  # Workspace Rules
+	  workspace = 1, monitor:HDMI-A-1, default:true
+	  workspace = 2, monitor:HDMI-A-1, on-created-empty:firefox
+	  workspace = 3, monitor:HDMI-A-1
+	  workspace = 4, monitor:HDMI-A-1
+	  workspace = 5, monitor:HDMI-A-1
+	  workspace = 6, monitor:HDMI-A-1
+	  workspace = 7, monitor:HDMI-A-1
+	  workspace = 8, monitor:eDP-1
+	  workspace = 9, monitor:eDP-1
+	  workspace = 10, monitor:eDP-1
+
+
 	'';
     };
 }

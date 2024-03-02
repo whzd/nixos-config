@@ -1,36 +1,29 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  security.pam.services.swaylock = {};
   programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-effects;
     settings = {
-      key-hl-color="00000066";
-      separator-color="00000000";
-      inside-color="00000033";
-      inside-clear-color="ffffff00";
-      inside-caps-lock-color="ffffff00";
-      inside-ver-color="ffffff00";
-      inside-wrong-color="ffffff00";
-      ring-color="ffffff";
-      ring-clear-color="ffffff";
-      ring-caps-lock-color="ffffff";
-      ring-ver-color="ffffff";
-      ring-wrong-color="ffffff";
-      line-color="00000000";
-      line-clear-color="ffffffFF";
-      line-caps-lock-color="ffffffFF";
-      line-ver-color="ffffffFF";
-      line-wrong-color="ffffffFF";
-      text-color="ffffff";
-      text-clear-color="ffffff";
-      text-ver-color="ffffff";
-      text-wrong-color="ffffff";
-      bs-hl-color="ffffff";
-      caps-lock-key-hl-color="ffffffFF";
-      caps-lock-bs-hl-color="ffffffFF";
-      disable-caps-lock-text = true;
-      text-caps-lock-color="ffffff";
+      color = "#"+config.lib.stylix.colors.base00;
+      inside-color = "#"+config.lib.stylix.colors.base00+"cc";
+      inside-caps-lock-color = "#"+config.lib.stylix.colors.base09;
+      inside-clear-color = "#"+config.lib.stylix.colors.base0A;
+      inside-wrong-color = "#"+config.lib.stylix.colors.base08;
+      inside-ver-color = "#"+config.lib.stylix.colors.base0D;
+      line-color = "#"+config.lib.stylix.colors.base00;
+      line-caps-lock-color = "#"+config.lib.stylix.colors.base00;
+      line-clear-color = "#"+config.lib.stylix.colors.base00;
+      line-wrong-color = "#"+config.lib.stylix.colors.base00;
+      line-ver-color = "#"+config.lib.stylix.colors.base00;
+      ring-color = "#"+config.lib.stylix.colors.base00;
+      ring-caps-lock-color = "#"+config.lib.stylix.colors.base09;
+      ring-clear-color = "#"+config.lib.stylix.colors.base0A;
+      ring-wrong-color = "#"+config.lib.stylix.colors.base08;
+      ring-ver-color = "#"+config.lib.stylix.colors.base0D;
+      text-color = "#"+config.lib.stylix.colors.base00;
+      key-hl-color = "#"+config.lib.stylix.colors.base0B;
+      font = config.stylix.fonts.monospace.name;
       font-size = 20;
       fade-in = 0.5;
       grace = 5;
