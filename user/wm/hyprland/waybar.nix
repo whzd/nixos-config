@@ -99,7 +99,6 @@
 	  "format-disconnected" = " ";
 	  "tooltip-format" = "{essid}: {ipaddr}/{cidr}";
           "on-click" = "nm-connection-editor";
-          "max-length" = 20;
         };
 	bluetooth = {
         "format" = "󰂯";
@@ -142,7 +141,7 @@
     * {
         border: none;
         font-family: Font Awesome, ''+userSettings.font+'', Roboto, Arial, sans-serif;
-        font-size: 13px;
+        font-size: 14px;
         color: #'' + config.lib.stylix.colors.base05 + '';
         border-radius: 5px;
     }
@@ -168,7 +167,7 @@
     }
     /*-----modules indv----*/
     #workspaces button {
-        padding: 3px 5px;
+        padding: 3px 6px;
         background-color: transparent;
     }
     #workspaces button:hover {

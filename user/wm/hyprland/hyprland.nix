@@ -3,8 +3,8 @@
 {
   gtk.cursorTheme = {
     package = pkgs.quintom-cursor-theme;
-    name = if (config.stylix.polarity == "light") then "Quintom_Ink" else "Quintom_Snow";
-    size = 36;
+    name = "Quintom_Ink";
+    size = 30;
   };
 
   wayland.windowManager.hyprland =

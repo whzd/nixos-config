@@ -5,8 +5,8 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = {
-      color = "#"+config.lib.stylix.colors.base00;
-      inside-color = "#"+config.lib.stylix.colors.base00+"cc";
+      color = "#"+config.lib.stylix.colors.base05;
+      inside-color = "#"+config.lib.stylix.colors.base02+"cc";
       inside-caps-lock-color = "#"+config.lib.stylix.colors.base09;
       inside-clear-color = "#"+config.lib.stylix.colors.base0A;
       inside-wrong-color = "#"+config.lib.stylix.colors.base08;
@@ -21,7 +21,7 @@
       ring-clear-color = "#"+config.lib.stylix.colors.base0A;
       ring-wrong-color = "#"+config.lib.stylix.colors.base08;
       ring-ver-color = "#"+config.lib.stylix.colors.base0D;
-      text-color = "#"+config.lib.stylix.colors.base00;
+      text-color = "#"+config.lib.stylix.colors.base05;
       key-hl-color = "#"+config.lib.stylix.colors.base0B;
       font = config.stylix.fonts.monospace.name;
       font-size = 20;
@@ -29,7 +29,11 @@
       grace = 5;
       indicator-radius = 100;
       screenshots = true;
+      clock = true;
+      timestr="%T";
+      datestr="%F";
       effect-blur = "10x10";
+      ignore-empty-password = true;
     };
   };
 }
