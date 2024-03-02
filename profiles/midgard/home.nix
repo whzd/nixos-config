@@ -28,6 +28,8 @@
       kitty
       firefox
       wofi
+      spotifywm
+      obsidian
       xfce.thunar
       waybar
       wlogout

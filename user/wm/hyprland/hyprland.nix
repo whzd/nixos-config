@@ -1,6 +1,12 @@
 { config, lib, pkgs, stylix, ... }:
 
 {
+  gtk.cursorTheme = {
+    package = pkgs.quintom-cursor-theme;
+    name = if (config.stylix.polarity == "light") then "Quintom_Ink" else "Quintom_Snow";
+    size = 36;
+  };
+
   wayland.windowManager.hyprland =
     {
       enable = true;
@@ -21,6 +27,7 @@
           exec-once = blueman-applet
           exec-once = waybar
 	  exec-once = pypr
+	  exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
 
           # Monitors
 	  # Default
@@ -196,15 +203,14 @@
 	  # Workspace Rules
 	  workspace = 1, monitor:HDMI-A-1, default:true
 	  workspace = 2, monitor:HDMI-A-1, on-created-empty:firefox
-	  workspace = 3, monitor:HDMI-A-1
+	  workspace = 3, monitor:HDMI-A-1, on-created-empty:obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland
 	  workspace = 4, monitor:HDMI-A-1
 	  workspace = 5, monitor:HDMI-A-1
 	  workspace = 6, monitor:HDMI-A-1
 	  workspace = 7, monitor:HDMI-A-1
 	  workspace = 8, monitor:eDP-1
-	  workspace = 9, monitor:eDP-1
+	  workspace = 9, monitor:eDP-1, on-created-empty:spotify -enable-features=UseOzonePlatform -ozone-platform=wayland
 	  workspace = 10, monitor:eDP-1
-
 
 	'';
     };
