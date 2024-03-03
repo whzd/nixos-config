@@ -10,13 +10,19 @@
     history.size = 10000;
     initExtra =
       ''
+      	# Remove anoying beep
         unsetopt beep
+	# Bind autosuggestions complete
+	bindkey '^ ' autosuggest-accept
       '';
 
     oh-my-zsh =
       {
 	enable = true;
-	plugins = [ "git" ];
+	plugins =
+	[ 
+	  "git"
+	];
 	theme = "robbyrussell";
       };
     };

@@ -15,9 +15,15 @@
       ../../user/wm/hyprland/waybar.nix
       ../../user/wm/hyprland/swaylock.nix
       ../../user/wm/hyprland/wofi.nix
+      ../../user/wm/hyprland/bluetooth.nix
       ../../user/shell/zsh.nix
+      ../../user/shell/starship.nix
       ../../user/terminal/kitty.nix
-      ../../user/hardware/bluetooth.nix
+      ../../user/terminal/tmux.nix
+      ../../user/ide/nixvim/base.nix
+      ../../user/ide/nixvim/plugins.nix
+      ../../user/ide/nixvim/colorscheme.nix
+      ../../user/ide/nixvim/keymaps.nix
     ];
 
   # The state version is required and should stay at the version you
@@ -27,19 +33,19 @@
   home.packages = with pkgs;
     [
       zsh
-      kitty
-      firefox
       wofi
-      spotifywm
-      obsidian
-      xfce.thunar
-      waybar
-      wlogout
-      hyprpaper
-      swaylock-effects
-      zathura
       sxiv
+      kitty
+      waybar
+      zathura
+      wlogout
+      firefox
       neofetch
+      obsidian
+      hyprpaper
+      spotifywm
+      xfce.thunar
+      swaylock-effects
     ];
   
   home.sessionVariables = {

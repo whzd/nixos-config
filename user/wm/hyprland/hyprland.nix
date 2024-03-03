@@ -142,7 +142,7 @@
           bind = $mainMod, RETURN, exec, kitty
           bind = $mainMod SHIFT, Q, killactive, 
           #bind = $mainMod, M, exit, 
-	  bind = $mainMod CTRL, L, exec, swaylock
+	  bind = SHIFT CTRL, L, exec, swaylock
 	  bind = $mainMod SHIFT, E, exec, pkill wlogout || wlogout
           bind = $mainMod, F, fullscreen, 
           bind = $mainMod SHIFT, F, togglefloating, 
@@ -184,6 +184,15 @@
           bind = $mainMod SHIFT, 8, movetoworkspace, 8
           bind = $mainMod SHIFT, 9, movetoworkspace, 9
           bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+	  #Test
+	  bind = $mainMod SHIFT CTRL, 1, movecurrentworkspacetomonitor, HDMI-A-1 
+	  bind = $mainMod SHIFT CTRL, 2, movecurrentworkspacetomonitor, eDP-1
+
+	  
+          # Move/resize windows with mainMod + LMB/RMB and dragging
+          bindm = $mainMod SHIFT, mouse:272, movewindow
+          bindm = $mainMod SHIFT, mouse:273, resizewindow
           
           # Example special workspace (scratchpad)
           bind = $mainMod, S, togglespecialworkspace, magic
@@ -222,7 +231,7 @@
 
 	  # Obsidian window
 	  $obsidian = class:^(obsidian)$
-	  windowrulev2 = opacity 0.9,$obsidian
+	  windowrulev2 = opacity 0.95,$obsidian
 
 	  # Workspace Rules
 	  workspace = 1, monitor:HDMI-A-1, default:true
@@ -235,7 +244,6 @@
 	  workspace = 8, monitor:eDP-1
 	  workspace = 9, monitor:eDP-1, on-created-empty:spotify -enable-features=UseOzonePlatform -ozone-platform=wayland
 	  workspace = 10, monitor:eDP-1
-
 	'';
     };
 }

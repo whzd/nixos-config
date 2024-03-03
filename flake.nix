@@ -1,7 +1,16 @@
 {
   description = "Flake of whzd";
 
-  outputs = inputs@{ self, nixpkgs, home-manager, rust-overlay, stylix, ... }:
+  outputs =
+  inputs@{ 
+    self,
+    nixpkgs,
+    home-manager,
+    rust-overlay,
+    stylix,
+    nixvim,
+    ...
+  }:
 
   let
     systemSettings =
@@ -50,11 +59,16 @@
 	  ${userSettings.username} = home-manager.lib.homeManagerConfiguration
 	    {
 	      inherit pkgs;
-	      modules = [ (./. + "/profiles" + ("/" + systemSettings.hostname ) + "/home.nix") ];
+	      modules =
+	      [
+	        (./. + "/profiles" + ("/" + systemSettings.hostname ) + "/home.nix")
+		inputs.nixvim.homeManagerModules.nixvim
+	      ];
 	      extraSpecialArgs =
 	        {
 		  inherit userSettings;
 		  inherit (inputs) stylix;
+		  inherit (inputs) nixvim;
 		};
 	    };
 	};
@@ -69,5 +83,8 @@
       rust-overlay.url = "github:oxalica/rust-overlay";
 
       stylix.url = "github:danth/stylix";
+
+      nixvim.url = "github:nix-community/nixvim";
+      nixvim.inputs.nixpkgs.follows = "nixpkgs";
     };
 }
