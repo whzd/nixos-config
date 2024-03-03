@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.wlogout =
@@ -6,12 +6,12 @@
       enable = true;
       layout =
         [
-	 # {
-         #     "label" = "lock";
-         #     "action" = "sleep 1; hyprlock";
-         #     "text" = "Lock";
-         #     "keybind" = "l";
-         # }
+	  {
+              "label" = "lock";
+              "action" = "sleep 1; swaylock";
+              "text" = "Lock";
+              "keybind" = "l";
+          }
           {
               "label" = "hibernate";
               "action" = "sleep 1; systemctl hibernate";
@@ -20,7 +20,7 @@
           }
           {
               "label" = "logout";
-              "action" = "sleep 1; hyprctl dispatch exit";
+              "action" = "sleep 1; loginctl terminate-user $USER";
               "text" = "Exit";
               "keybind" = "e";
           }
@@ -43,13 +43,21 @@
               "keybind" = "r";
           }
 	];
-      style =
+  };
+  home.file.".config/wlogout/icons/" =
+  {
+   source = ./icons;
+   recursive = true;
+  };
+      home.file.".config/wlogout/style.css".text =
         ''
           * {
-          	background-image: none;
+	  	background-image: none;
           	transition: 20ms;
           }
-          
+	  window {
+	   background-color: rgba(12, 12, 12, 0.1);
+          }
           button {
           	color: #FFFFFF;
               font-size:20px;
@@ -75,32 +83,37 @@
           #lock {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/lock.png"));
           }
           
           #logout {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/logout.png"));
           }
           
           #suspend {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/suspend.png"));
           }
           
           #hibernate {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/hibernate.png"));
           }
           
           #shutdown {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/shutdown.png"));
           }
           
           #reboot {
           	margin: 10px;
           	border-radius: 20px;
+		background-image: image(url("icons/reboot.png"));
           }
-	'';
-    };
+	''; 
 }

@@ -14,7 +14,9 @@
       ../../user/wm/hyprland/wlogout.nix
       ../../user/wm/hyprland/waybar.nix
       ../../user/wm/hyprland/swaylock.nix
+      ../../user/wm/hyprland/wofi.nix
       ../../user/shell/zsh.nix
+      ../../user/terminal/kitty.nix
       ../../user/hardware/bluetooth.nix
     ];
 
@@ -35,6 +37,9 @@
       wlogout
       hyprpaper
       swaylock-effects
+      zathura
+      sxiv
+      neofetch
     ];
   
   home.sessionVariables = {

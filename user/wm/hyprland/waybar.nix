@@ -39,10 +39,10 @@
 	[
 	  "battery"
 	  "pulseaudio"
+          "hyprland/workspaces" 
 	  #"weather"
 	];
-        modules-center =
-	[ "hyprland/workspaces" ];
+        #modules-center = [];
         modules-right =
 	[
 	  "bluetooth"
@@ -68,8 +68,14 @@
 	    "10" = "0 ";
 	  };
         };
+
+	"custom/power" = {
+          "format" = " {}";
+	  "tooltip" = false;
+          "on-click" = "pkill wlogout || wlogout";
+        };
         clock = {
-          "format" = "{:%a, %d %b, %H:%M}";
+          "format" = "{:%a, %d %b %Y, %H:%M}";
         };
         battery =
 	{
@@ -130,10 +136,6 @@
           };
           "on-click" = "pypr toggle pavucontrol && hyprctl dispatch bringactivetotop";
         };
-	"custom/power" = {
-          "format-icon" = " ";
-          "on-click" = "";
-        };
       };
     };
     style =
@@ -157,18 +159,21 @@
     	background-color: #'' + config.lib.stylix.colors.base00 + '';
         margin: 2px 10px 0 0;
     }
+    /*
     .modules-center {
     	background-color: #'' + config.lib.stylix.colors.base00 + '';
         margin: 2px 0 0 0;
     }
+    */
     .modules-left {
     	background-color: #'' + config.lib.stylix.colors.base00 + '';
         margin: 2px 0 0 5px;
     }
     /*-----modules indv----*/
     #workspaces button {
-        padding: 3px 6px;
-        background-color: transparent;
+        /*background-color: transparent;*/
+    	background-color: #'' + config.lib.stylix.colors.base02 + '';
+	border-radius: 0px;
     }
     #workspaces button:hover {
         box-shadow: inherit;
@@ -178,7 +183,7 @@
     	background-color: #'' + config.lib.stylix.colors.base04 + '';
     }
     #workspaces button.active {
-    	background-color: #'' + config.lib.stylix.colors.base02 + '';
+    	background-color: #'' + config.lib.stylix.colors.base04 + '';
     }
     
     #clock,
@@ -199,12 +204,6 @@
     #mode {
         color: #cc3436;
         font-weight: bold;
-    }
-    #custom-power {
-        background-color: rgba(0,119,179,0.6);
-        border-radius: 100px;
-        margin: 5px 5px;
-        padding: 1px 1px 1px 6px;
     }
     /*-----Indicators----*/
     #idle_inhibitor.activated {

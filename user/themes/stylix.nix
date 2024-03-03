@@ -3,7 +3,7 @@
 {
   stylix.autoEnable = false;
   stylix.polarity = "dark";
-  stylix.image = ./${userSettings.theme}/bg_6.jpg;
+  stylix.image = ./${userSettings.theme}/bg.jpg;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
 
   stylix.fonts = {

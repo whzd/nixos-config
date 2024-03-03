@@ -4,7 +4,7 @@
   gtk.cursorTheme = {
     package = pkgs.quintom-cursor-theme;
     name = "Quintom_Ink";
-    size = 30;
+    size = 25;
   };
 
   wayland.windowManager.hyprland =
@@ -40,7 +40,7 @@
 	  monitor=HDMI-A-1, 1920x1080@60, 0x0, 1
 	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
 
-          env = XCURSOR_SIZE,24
+          #env = XCURSOR_SIZE,24
           
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
           input {
@@ -133,7 +133,6 @@
           # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
-	  windowrulev2 = opacity 0.9 0.9,class:^(kitty)$
 
           
 	  # Main mod
@@ -142,10 +141,13 @@
 	  # Custom shortcuts
           bind = $mainMod, RETURN, exec, kitty
           bind = $mainMod SHIFT, Q, killactive, 
-          bind = $mainMod, M, exit, 
-          bind = $mainMod, F, togglefloating, 
+          #bind = $mainMod, M, exit, 
+	  bind = $mainMod CTRL, L, exec, swaylock
+	  bind = $mainMod SHIFT, E, exec, pkill wlogout || wlogout
+          bind = $mainMod, F, fullscreen, 
+          bind = $mainMod SHIFT, F, togglefloating, 
           bind = $mainMod, O, togglesplit, # dwindle
-          bind = $mainMod, P, exec, wofi --show drun
+          bind = $mainMod, P, exec, pkill wofi || wofi --show drun
           
           # Move focus with mainMod + vim movement
           bind = $mainMod, H, movefocus, l
@@ -191,6 +193,13 @@
 	  bindel=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
           bindel=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
           bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+	  # Lid close and open events
+	  #bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+	  #bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1200@60, 0x1080, 1.25"
+
+	  # Power button
+	  bind =,XF86PowerOff, exec, pkill wlogout || wlogout
           
 	  # Pulsadio float window
           $pavucontrol = class:^(pavucontrol)$
@@ -198,7 +207,22 @@
           windowrulev2 = size 86% 40%,$pavucontrol
           windowrulev2 = move 50% 6%,$pavucontrol
           windowrulev2 = workspace special silent,$pavucontrol
-          windowrulev2 = opacity 0.80,$pavucontrol
+          windowrulev2 = opacity 0.8,$pavucontrol
+
+	  # Kitty window
+	  windowrulev2 = opacity 0.9 0.9,class:^(kitty)$
+
+	  # Bluetooth window
+	  $blueman = class:^(.blueman-manager-wrapped)$
+          windowrulev2 = opacity 0.8,$blueman
+
+	  # Wifi window
+	  $nm = class:^(nm-connection-editor)
+          windowrulev2 = opacity 0.8,$nm
+
+	  # Obsidian window
+	  $obsidian = class:^(obsidian)$
+	  windowrulev2 = opacity 0.9,$obsidian
 
 	  # Workspace Rules
 	  workspace = 1, monitor:HDMI-A-1, default:true

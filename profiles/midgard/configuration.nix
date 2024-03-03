@@ -7,6 +7,7 @@
       ../../system/hardware-configuration.nix
       ../../system/hardware/time.nix
       ../../system/hardware/power.nix
+      ../../system/hardware/systemd.nix
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/printing.nix
       ../../system/networking/dns.nix
@@ -56,7 +57,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    alacritty
     firefox
     kitty
     dunst
@@ -64,7 +64,6 @@
     wget
     zsh
     git
-    neofetch
     rofi-wayland
   ];
 
