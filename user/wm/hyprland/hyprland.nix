@@ -36,8 +36,12 @@
 	  # Only laptop
 	  monitor=eDP-1, 1920x1200@60, 0x0, 1.25
 
-	  # Two monitors
+	  # Two monitors Home
 	  monitor=HDMI-A-1, 1920x1080@60, 0x0, 1
+	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
+
+	  # Two monitors Office
+	  monitor=DP-5, 1920x1080@60, 0x0, 1
 	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
 
           #env = XCURSOR_SIZE,24
@@ -234,6 +238,7 @@
 	  windowrulev2 = opacity 0.95,$obsidian
 
 	  # Workspace Rules
+	  ## Home
 	  workspace = 1, monitor:HDMI-A-1, default:true
 	  workspace = 2, monitor:HDMI-A-1, on-created-empty:firefox
 	  workspace = 3, monitor:HDMI-A-1, on-created-empty:obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland
@@ -241,7 +246,16 @@
 	  workspace = 5, monitor:HDMI-A-1
 	  workspace = 6, monitor:HDMI-A-1
 	  workspace = 7, monitor:HDMI-A-1
-	  workspace = 8, monitor:eDP-1
+	  ## Office
+	  workspace = 1, monitor:DP-5, default:true
+	  workspace = 2, monitor:DP-5, on-created-empty:firefox
+	  workspace = 3, monitor:DP-5, on-created-empty:obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland
+	  workspace = 4, monitor:DP-5
+	  workspace = 5, monitor:DP-5
+	  workspace = 6, monitor:DP-5
+	  workspace = 7, monitor:DP-5
+	  ## Laptop
+	  workspace = 8, monitor:eDP-1, on-created-empty:teams-for-linux -enable-features=UseOzonePlatform -ozone-platform=wayland
 	  workspace = 9, monitor:eDP-1, on-created-empty:spotify -enable-features=UseOzonePlatform -ozone-platform=wayland
 	  workspace = 10, monitor:eDP-1
 	'';

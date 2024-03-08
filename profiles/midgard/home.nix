@@ -33,9 +33,11 @@
   home.packages = with pkgs;
     [
       zsh
+      zip
       wofi
       sxiv
       kitty
+      unzip
       waybar
       zathura
       wlogout
@@ -45,6 +47,7 @@
       hyprpaper
       spotifywm
       xfce.thunar
+      teams-for-linux
       swaylock-effects
     ];
   

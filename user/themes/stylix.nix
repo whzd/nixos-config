@@ -50,6 +50,8 @@
 
     wallpaper = HDMI-A-1,''+config.stylix.image+''
 
+    wallpaper = DP-5,''+config.stylix.image+''
+
     splash = false
 
   '';
