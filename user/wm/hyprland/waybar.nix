@@ -3,25 +3,10 @@
 {
   home.packages = with pkgs;
   [
-    pyprland
     networkmanagerapplet
+    overskride
+    iwgtk
   ];
-  home.file.".config/hypr/pyprland.json".text =
-  ''
-    {
-      "pyprland": {
-        "plugins": ["scratchpads"]
-      },
-      "scratchpads": {
-        "pavucontrol": {
-          "command": "pavucontrol",
-          "margin": 50,
-          "unfocus": "hide",
-          "animation": "fromTop"
-        }
-      }
-    }
-  '';
   programs.waybar =
   {
     enable = true;
@@ -104,12 +89,12 @@
           "format-ethernet" = "  ";
 	  "format-disconnected" = " ";
 	  "tooltip-format" = "{essid}: {ipaddr}/{cidr}";
-          "on-click" = "nm-connection-editor";
+          "on-click" = "iwgtk";
         };
 	bluetooth = {
         "format" = "󰂯";
         "format-disabled" = "󰂲";
-        "on-click" = "blueman-manager";
+        "on-click" = "overskride";
         "on-click-right" = "rfkill toggle bluetooth";
         "tooltip-format" = "{}";
         };
@@ -134,7 +119,7 @@
 	      ""
 	    ];
           };
-          "on-click" = "pypr toggle pavucontrol && hyprctl dispatch bringactivetotop";
+          "on-click" = "pavucontrol";
         };
       };
     };

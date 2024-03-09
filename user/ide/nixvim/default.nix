@@ -5,10 +5,18 @@
 }:
 
 {
+  imports =
+  [
+    ./colorscheme.nix
+    ./keymaps.nix
+    ./plugins
+  ];
+
   home.packages = with pkgs;
   [
     wl-clipboard
   ];
+  
   programs.nixvim =
   {
     enable = true;

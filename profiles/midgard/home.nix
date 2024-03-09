@@ -20,10 +20,7 @@
       ../../user/shell/starship.nix
       ../../user/terminal/kitty.nix
       ../../user/terminal/tmux.nix
-      ../../user/ide/nixvim/base.nix
-      ../../user/ide/nixvim/plugins.nix
-      ../../user/ide/nixvim/colorscheme.nix
-      ../../user/ide/nixvim/keymaps.nix
+      ../../user/ide/nixvim
     ];
 
   # The state version is required and should stay at the version you
