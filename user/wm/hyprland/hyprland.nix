@@ -7,6 +7,7 @@
     wofi
     grim
     slurp
+    polkit-kde-agent
   ];
 
   gtk.cursorTheme = {
@@ -115,8 +116,8 @@
           exec-once = waybar
 	  exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
 	  exec-once = wl-paste --type text --watch cliphist store #Stores only text data
+	  exec-once=/usr/lib/polkit-kde-authentication-agent-1
 
-	  exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 
           # Monitors
 	  # Default
@@ -254,16 +255,21 @@
 	  windowrulev2 = opacity 0.9 0.9,class:^(kitty)$
 
 	  # Bluetooth window
-	  $blueman = class:^(.blueman-manager-wrapped)$
-          windowrulev2 = opacity 0.8,$blueman
+	  $overskride = class:^(io.github.kaii_lb.Overskride)$
+          windowrulev2 = opacity 0.8,$overskride
 
 	  # Wifi window
-	  $nm = class:^(nm-connection-editor)
-          windowrulev2 = opacity 0.8,$nm
+	  $iwgtk = class:^(iwgtk)
+          windowrulev2 = opacity 0.8,$iwgtk
+	  # Wifi window
+	  $iwgtk2 = class:^(org.twosheds.iwgtk)
+          windowrulev2 = opacity 0.8,$iwgtk2
 
 	  # Obsidian window
 	  $obsidian = class:^(obsidian)$
 	  windowrulev2 = opacity 0.95,$obsidian
+
+	  #
 
 	'';
     };

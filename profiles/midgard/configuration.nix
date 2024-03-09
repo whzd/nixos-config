@@ -28,6 +28,7 @@
   # Networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   # Timezone and locale
   time.timeZone = systemSettings.timezone;
@@ -65,6 +66,7 @@
     zsh
     git
     rofi-wayland
+    iwd
   ];
 
   # I use zsh btw
