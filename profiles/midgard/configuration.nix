@@ -10,7 +10,7 @@
       ../../system/hardware/systemd.nix
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/printing.nix
-      ../../system/networking/dns.nix
+      ../../system/networking
       ../../system/wm/hyprland.nix
     ];
 
@@ -27,8 +27,6 @@
 
   # Networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
 
   # Timezone and locale
   time.timeZone = systemSettings.timezone;
