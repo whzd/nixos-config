@@ -19,15 +19,15 @@
         hostname = "midgard";
         timezone = "Europe/Lisbon"; 
         locale = "pt_PT.UTF-8"; 
-	extraLocale = "en_US.UTF-8"; 
+        extraLocale = "en_US.UTF-8"; 
         bootMode = "uefi"; # uefi or bios
       };
     userSettings =
       rec {
         username = "whzd";
-        editor = "neovim";
-	theme = "everforest";
-	font = "nerdfonts";
+        editor = "nvim";
+        theme = "everforest";
+        font = "nerdfonts";
         fontPkg = pkgs.nerdfonts;
       };
     pkgs =

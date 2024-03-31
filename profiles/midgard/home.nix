@@ -46,6 +46,10 @@
       xfce.thunar
       teams-for-linux
       swaylock-effects
+      ansible
+      terraform
+      awscli2
+      azure-cli
     ];
   
   home.sessionVariables = {

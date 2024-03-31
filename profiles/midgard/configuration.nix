@@ -18,7 +18,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = false;
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = if (systemSettings.bootMode == "uefi") then true else false;

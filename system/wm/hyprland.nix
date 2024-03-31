@@ -21,17 +21,14 @@
   services.gnome.gnome-keyring.enable = true;
 
   programs =
+  {
+    hyprland =
     {
-      hyprland =
-        {
-	  enable = true;
-	  xwayland =
-	    {
-	      enable = true;
-	    };
-	  portalPackage = pkgs.xdg-desktop-portal-hyprland;
-	};
+      enable = true;
+      xwayland.enable = true;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
+  };
   services.xserver =
     {
       enable = true;
