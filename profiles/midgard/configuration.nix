@@ -12,6 +12,7 @@
       ../../system/hardware/printing.nix
       ../../system/networking
       ../../system/wm/hyprland.nix
+      ../../system/virtualization/docker.nix
     ];
 
   # Ensure nix flakes are enabled

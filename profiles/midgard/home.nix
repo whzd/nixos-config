@@ -21,6 +21,7 @@
       ../../user/terminal/kitty.nix
       ../../user/terminal/tmux.nix
       ../../user/ide/nixvim
+      ../../user/work
     ];
 
   # The state version is required and should stay at the version you
@@ -46,10 +47,6 @@
       xfce.thunar
       teams-for-linux
       swaylock-effects
-      ansible
-      terraform
-      awscli2
-      azure-cli
     ];
   
   home.sessionVariables = {
