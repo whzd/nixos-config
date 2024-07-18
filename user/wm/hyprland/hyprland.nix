@@ -81,6 +81,7 @@
 	    "$mainMod SHIFT CTRL, 1, movecurrentworkspacetomonitor, DP-5"
 	    "$mainMod SHIFT CTRL, 2, movecurrentworkspacetomonitor, eDP-1"
 	    "$mainMod SHIFT CTRL, 3, movecurrentworkspacetomonitor, HDMI-A-1"
+	    "$mainMod SHIFT CTRL, 4, movecurrentworkspacetomonitor, DP-1"
 
 	  ];
 
