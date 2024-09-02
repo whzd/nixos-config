@@ -78,7 +78,7 @@
 	    "$mainMod SHIFT, 0, movetoworkspace, 10"
 
 	    # Switch workspaces
-	    "$mainMod SHIFT CTRL, 1, movecurrentworkspacetomonitor, DP-5"
+	    "$mainMod SHIFT CTRL, 1, movecurrentworkspacetomonitor, desc:Dell Inc. DELL P2419H 2NGBFZ2"
 	    "$mainMod SHIFT CTRL, 2, movecurrentworkspacetomonitor, eDP-1"
 	    "$mainMod SHIFT CTRL, 3, movecurrentworkspacetomonitor, HDMI-A-1"
 	    "$mainMod SHIFT CTRL, 4, movecurrentworkspacetomonitor, DP-1"
@@ -89,15 +89,15 @@
 	  workspace =
 	  [
 	    ## Office
-	    "1, monitor:DP-5, default:true"
-	    "2, monitor:DP-5, on-created-empty:firefox"
-	    "3, monitor:DP-5, on-created-empty:obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland"
-	    "4, monitor:DP-5"
-	    "5, monitor:DP-5"
-	    "6, monitor:DP-5"
-	    "7, monitor:DP-5"
+	    "1, desc:Dell Inc. DELL P2419H 2NGBFZ2, default:true"
+	    "2, desc:Dell Inc. DELL P2419H 2NGBFZ2, on-created-empty:firefox"
+	    "3, desc:Dell Inc. DELL P2419H 2NGBFZ2, on-created-empty:obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland"
+	    "4, desc:Dell Inc. DELL P2419H 2NGBFZ2"
+	    "5, desc:Dell Inc. DELL P2419H 2NGBFZ2"
+	    "6, desc:Dell Inc. DELL P2419H 2NGBFZ2"
+	    "7, desc:Dell Inc. DELL P2419H 2NGBFZ2"
 	    ## Laptop
-	    "8, monitor:eDP-1, on-created-empty:teams-for-linux -enable-features=UseOzonePlatform -ozone-platform=wayland"
+	    "8, monitor:eDP-1, on-created-empty:teams-for-linux -enable-features=UseOzonePlatform -ozone-platform=wayland, default:true"
 	    "9, monitor:eDP-1, on-created-empty:spotify -enable-features=UseOzonePlatform -ozone-platform=wayland"
 	    "10, monitor:eDP-1"
 	  ];
@@ -132,7 +132,7 @@
 	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
 
 	  # Two monitors Office
-	  monitor=DP-5, 1920x1080@60, 0x0, 1
+	  monitor=desc:Dell Inc. DELL P2419H 2NGBFZ2, 1920x1080@60, 0x0, 1
 	  monitor=eDP-1, 1920x1200@60, 0x1080, 1.25
 
           #env = XCURSOR_SIZE,24
