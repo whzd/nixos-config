@@ -10,5 +10,8 @@
     docker
     qemu
     go
+    kubectl
+    kubernetes-helm
+    argocd
   ];
 }
