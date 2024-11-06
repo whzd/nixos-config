@@ -9,7 +9,7 @@
 
       listenPort = 51820;
 
-      privateKey = "4BMU9osdJclMiNh1UKVgcWRh8G3dQ0bHiKxl804ovHE=";
+      privateKey = "oML2UmdJRu/jJxKKmHJE+zOYjK5C7ByT7Db7y+FVMUw=";
 
       peers = [{
         publicKey = "J4aO5xLwZ09S+NixQnwEWmUN/myMfHyL9IT0TPH2Jkk=";
