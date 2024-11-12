@@ -13,5 +13,6 @@
     kubectl
     kubernetes-helm
     argocd
+    gnumake
   ];
 }
