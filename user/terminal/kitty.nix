@@ -8,7 +8,7 @@
   programs.kitty =
   {
     enable = true;
-    theme = "Everforest Dark Soft";
+    themeFile = "everforest_dark_soft";
     font =
     {
       name = userSettings.font;

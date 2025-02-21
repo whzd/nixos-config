@@ -3,6 +3,7 @@
 {
   imports =
   [
+    ./webdevicons.nix
     ./treesitter.nix
     ./lualine.nix
     ./neotree.nix

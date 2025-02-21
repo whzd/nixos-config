@@ -6,16 +6,18 @@
     plugins.bufferline =
     {
       enable = true;
-      alwaysShowBufferline = false;
-      offsets =
-        [
-        {
-          filetype = "neo-tree";
-          text = "Neo-tree";
-          highlight = "Directory";
-          text_align = "left";
-        }
-        ];
+      settings.options = {
+        always_show_bufferline = false;
+        offsets =
+          [
+          {
+            filetype = "neo-tree";
+            text = "Neo-tree";
+            highlight = "Directory";
+            text_align = "left";
+          }
+          ];
+      };
     };
     keymaps =
       [

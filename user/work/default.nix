@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    _1password
+    _1password-cli
     ansible
     terraform
     awscli2

@@ -155,10 +155,8 @@
           }
           
 	  general {
-            cursor_inactive_timeout = 30
             border_size = 4
-            no_cursor_warps = false
-            col.active_border = rgb('' + config.lib.stylix.colors.base0D + '')
+            col.active_border = rgb(a7c080)
 
 	    col.inactive_border = 0x33'' + config.lib.stylix.colors.base00 + ''
 
@@ -177,11 +175,16 @@
                   size = 3
                   passes = 1
               }
+              shadow {
+                enabled = yes
+                range = 4
+                render_power = 3
+              }
           
-              drop_shadow = yes
-              shadow_range = 4
-              shadow_render_power = 3
-              #col.shadow = rgba(1a1a1aee)
+          }
+          cursor {
+            inactive_timeout = 30
+            no_warps = false
           }
           
           animations {
@@ -208,7 +211,7 @@
             #col.inactive_border = rgb('' + config.lib.stylix.colors.base00 + '')
           master {
               # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-              new_is_master = true
+              new_status = master
           }
           
           gestures {
@@ -218,7 +221,8 @@
           
           # Example per-device config
           # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-          device:epic-mouse-v1 {
+          device {
+              name = epic-mouse-v1
               sensitivity = -0.5
           }
           

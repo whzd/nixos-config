@@ -56,7 +56,7 @@
 
   '';
   home.packages = with pkgs; [
-     qt5ct
+     libsForQt5.qt5ct
      libsForQt5.breeze-qt5
   ];
   home.sessionVariables = {

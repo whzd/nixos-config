@@ -22,11 +22,18 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    clipboard = {
+      register = "unnamedplus";
+      providers =
+      {
+        wl-copy.enable = true;
+        wl-copy.package = pkgs.wl-clipboard;
+      };
+    };
 
-    options =
+    opts =
     {
       autowrite = true;
-      clipboard = "unnamedplus";
       completeopt = "menu,menuone,noselect";
       conceallevel = 2;
       confirm = true;
@@ -88,11 +95,5 @@
       };
     };
 
-    clipboard.register = "unnamedplus";
-    clipboard.providers =
-    {
-      wl-copy.enable = true;
-      wl-copy.package = pkgs.wl-clipboard;
-    };
   };
 }

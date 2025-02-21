@@ -28,7 +28,7 @@
         editor = "nvim";
         theme = "everforest";
         font = "nerdfonts";
-        fontPkg = pkgs.nerdfonts;
+        fontPkg = pkgs.nerd-fonts.hack;
       };
     pkgs =
       import nixpkgs {

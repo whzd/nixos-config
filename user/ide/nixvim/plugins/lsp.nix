@@ -33,12 +33,6 @@
         jsonls.enable = true;
         marksman.enable = true;
         terraformls.enable = true;
-        rust-analyzer =
-        {
-          enable = true;
-          installCargo = true;
-          installRustc = true;
-        };
       };
     };
   };
