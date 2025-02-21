@@ -113,9 +113,9 @@
 	  exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 	  exec-once = hyprpaper
 	  exec-once = nm-applet
-          exec-once = blueman-applet
-          exec-once = waybar
-	  exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
+    exec-once = blueman-applet
+    exec-once = waybar
+	  exec-once = hyprctl setcursor Quintom_Ink 25
 	  exec-once = wl-paste --type text --watch cliphist store #Stores only text data
 	  exec-once=/usr/lib/polkit-kde-authentication-agent-1
 
