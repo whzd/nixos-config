@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs;
+  [
+    wlogout
+  ];
+
   programs.wlogout =
     {
       enable = true;
@@ -8,7 +13,7 @@
         [
 	  {
               "label" = "lock";
-              "action" = "sleep 1; swaylock";
+              "action" = "sleep 1; swaylock-fancy -pe -t 'Nothing to see here..' -f 'Hack-Nerd-Font-Regular'";
               "text" = "Lock";
               "keybind" = "l";
           }

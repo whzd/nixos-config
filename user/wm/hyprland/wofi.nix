@@ -1,6 +1,11 @@
-{ config, userSettings,... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs;
+  [
+    wofi
+  ];
+
   programs.wofi =
   {
     enable = true;
@@ -8,18 +13,18 @@
     ''
       window {
         border-radius: 8px;
-        font-family: Font Awesome, ''+userSettings.font+'', Roboto;
-        color: #''+config.lib.stylix.colors.base05+'';
+        font-family: Font Awesome, nerdfonts, Roboto;
+        color: #d3c6aa;
       }
       #outer-box {
         border-radius: 7px;
-        border: 1px solid #''+config.lib.stylix.colors.base0D+'';
+        border: 1px solid #a7c080;
       }
       #input {
-        border: 1px solid #''+config.lib.stylix.colors.base0D+'';
+        border: 1px solid #a7c080;
       }
       #entry {
-        border: 1px solid #''+config.lib.stylix.colors.base01+'';
+        border: 1px solid #374247;
       }
     '';
   };

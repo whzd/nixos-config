@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stylix, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs;
@@ -31,7 +31,7 @@
 	    # Custom shortcuts
 	    "$mainMod, RETURN, exec, kitty"
 	    "$mainMod SHIFT, Q, killactive" 
-	    "SHIFT CTRL, L, exec, swaylock"
+	    "SHIFT CTRL, L, exec, swaylock-fancy -pe -t 'Nothing to see here..' -f 'Hack-Nerd-Font-Regular'"
 	    "$mainMod SHIFT, E, exec, pkill wlogout || wlogout"
 	    "$mainMod, F, fullscreen"
 	    "$mainMod SHIFT, F, togglefloating"
@@ -158,7 +158,7 @@
             border_size = 4
             col.active_border = rgb(a7c080)
 
-	    col.inactive_border = 0x33'' + config.lib.stylix.colors.base00 + ''
+	    col.inactive_border = 0x332f383e
 
                 resize_on_border = true
                 gaps_in = 7
@@ -208,7 +208,7 @@
               preserve_split = yes # you probably want this
           }
           
-            #col.inactive_border = rgb('' + config.lib.stylix.colors.base00 + '')
+            #col.inactive_border = rgb(2f383e)
           master {
               # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
               new_status = master

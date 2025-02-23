@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs,  ... }:
 
 {
   home.packages = with pkgs;
@@ -78,21 +78,21 @@
 
       # Set the status line's colors
       #setw -g status-style 'bg=#333335 fg=#5eacd3'
-      setw -g status-style 'bg=#''+config.lib.stylix.colors.base02+" "+'' fg=#''+config.lib.stylix.colors.base05+" "+'''
+      setw -g status-style 'bg=#4a555b fg=#d3c6aa'
 
       # Set colors for the active window
-      setw -g window-status-current-style 'fg=#''+config.lib.stylix.colors.base06+'',bold'
+      setw -g window-status-current-style 'fg=#e4e1cd,bold'
 
       # Set colors for pane borders
-      setw -g pane-border-style 'bg=#''+config.lib.stylix.colors.base02+" "+'' fg=#''+config.lib.stylix.colors.base05+" "+'''
-      setw -g pane-active-border-style 'bg=#''+config.lib.stylix.colors.base02+" "+'' fg=#''+config.lib.stylix.colors.base05+" "+'''
+      setw -g pane-border-style 'bg=#4a555b fg=#d3c6aa'
+      setw -g pane-active-border-style 'bg=#4a555b fg=#d3c6aa'
 
       # Set active pane normal, other shaded out
       #setw -g window-style 'bg=color0'
       #setw -g window-active-style 'bg=terminal'
 
       # Set command / message line colors
-      set -g message-style 'bg=#''+config.lib.stylix.colors.base00+" "+'' fg=#FFFFFF,bold'
+      set -g message-style 'bg=#2f383e fg=#FFFFFF,bold'
 
       # Remove right side status text
       set -g status-right ""

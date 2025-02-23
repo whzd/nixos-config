@@ -1,4 +1,4 @@
-{ pkgs, userSettings, config, lib, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs;
@@ -6,6 +6,7 @@
     networkmanagerapplet
     overskride
     iwgtk
+    waybar
   ];
   programs.waybar =
   {
@@ -127,9 +128,9 @@
     ''
     * {
         border: none;
-        font-family: Font Awesome, ''+userSettings.font+'', Roboto, Arial, sans-serif;
+        font-family: Font Awesome, nerdfonts, Roboto, Arial, sans-serif;
         font-size: 14px;
-        color: #'' + config.lib.stylix.colors.base05 + '';
+        color: #d3c6aa;
         border-radius: 5px;
     }
     
@@ -141,34 +142,34 @@
     }
     /*-----module groups----*/
     .modules-right {
-    	background-color: #'' + config.lib.stylix.colors.base00 + '';
+    	background-color: #2f383e;
         margin: 2px 10px 0 0;
     }
     /*
     .modules-center {
-    	background-color: #'' + config.lib.stylix.colors.base00 + '';
+    	background-color: #2f383e;
         margin: 2px 0 0 0;
     }
     */
     .modules-left {
-    	background-color: #'' + config.lib.stylix.colors.base00 + '';
+    	background-color: #2f383e;
         margin: 2px 0 0 5px;
     }
     /*-----modules indv----*/
     #workspaces button {
         /*background-color: transparent;*/
-    	background-color: #'' + config.lib.stylix.colors.base02 + '';
+    	background-color: #4a555b;
 	border-radius: 0px;
     }
     #workspaces button:hover {
         box-shadow: inherit;
-    	background-color: #'' + config.lib.stylix.colors.base0D + '';
+    	background-color: #a7c080;
     }
     #workspaces button.focused {
-    	background-color: #'' + config.lib.stylix.colors.base04 + '';
+    	background-color: #9da9a0;
     }
     #workspaces button.active {
-    	background-color: #'' + config.lib.stylix.colors.base04 + '';
+    	background-color: #9da9a0;
     }
     
     #clock,

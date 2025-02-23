@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, stylix, ... }:
+{ pkgs, userSettings, stylix, ... }:
 
 {
   home.username = userSettings.username;
@@ -10,12 +10,7 @@
     [
       stylix.homeManagerModules.stylix
       ../../user/themes/stylix.nix
-      ../../user/wm/hyprland/hyprland.nix
-      ../../user/wm/hyprland/wlogout.nix
-      ../../user/wm/hyprland/waybar.nix
-      ../../user/wm/hyprland/swaylock.nix
-      ../../user/wm/hyprland/wofi.nix
-      ../../user/wm/hyprland/bluetooth.nix
+      ../../user/wm/hyprland
       ../../user/shell/zsh.nix
       ../../user/shell/starship.nix
       ../../user/terminal/kitty.nix
@@ -32,13 +27,10 @@
     [
       zsh
       zip
-      wofi
       sxiv
       kitty
       unzip
-      waybar
       zathura
-      wlogout
       firefox
       neofetch
       obsidian
@@ -46,7 +38,6 @@
       spotifywm
       xfce.thunar
       teams-for-linux
-      swaylock-effects
     ];
   
   home.sessionVariables = {
